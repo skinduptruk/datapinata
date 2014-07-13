@@ -25,10 +25,13 @@ limitations under the License.
     body {
       -webkit-transform: translateZ(0);
     }
+	canvas {
+	background:url(bg.jpg);
+	}
     </style>
   </head>
   <body>
-    <canvas id="c0" width="640" height="480" style="border: 1px solid black"></canvas>
+    <canvas id="c0" width="640" height="480" style=border: 1px solid black"></canvas>
     
     <h1>Box2D with Pulley Joint and HTML5 Canvas</h1>
     
@@ -51,6 +54,8 @@ limitations under the License.
     
     alert(mycut);
 	}
+	
+	
 	</script>
     
     <script async>
@@ -186,7 +191,7 @@ limitations under the License.
 	        
       ctx.restore();
       
-      ctx.fillStyle = "black";             
+      ctx.fillStyle = "white";             
       ctx.font = "30px Arial";
 	  ctx.fillText(this.id,this.x * SCALE, this.y * SCALE);
 	  
@@ -264,30 +269,32 @@ limitations under the License.
     
     var initialState = [
       {id: "ground", x: canvasWidth / 2 / SCALE, y: canvasHeight/ SCALE, halfHeight: 0.5, halfWidth: canvasWidth / SCALE, color: 'yellow'},
-      {id: "my.boomstick", x: 15, y: 3, halfHeight: 4, halfWidth: 0.15},
+      {id: "my.boomstick by AGE | SEX | STATE", x: 15, y: 3, halfHeight: 4, halfWidth: 0.15},
       {id: "box1", x: 5, y: 6, halfHeight: 0.6, halfWidth: 0.6},
       {id: "box2", x: 7, y: 6, halfHeight: 0.4, halfWidth: 0.4}
     ];
     
-    var fields = ["FREQUENCY", "MEASURE", "AGE", "SEX", "ETC"];
+    var fields = ["DEMOGRAPHIC", "WEALTH", "ETHNO", "HEALTH", "EDUCATION"];
     
     var myid = "box";
      
     for (var i = 0; i < fields.length; i++) {
     
-    	myid = "box" + fields[i];
+    	myid = "box" + fields[0];
+      	initialState[4] = {id:myid, x:5, y:7, halfHeight: 0.5, halfWidth: 0.1, color: 'yellow'};
+		
+		myid = "box" + fields[1];
+		initialState[5] = {id:myid, x:6, y:7, halfHeight: 0.5, halfWidth: 0.2, color: 'aqua'};
+		
+		myid = "box" + fields[2];
+		initialState[6] = {id:myid, x:7, y:7, halfHeight: 0.5, halfWidth: 0.3, color: 'purple'};
+		
+		myid = "box" + fields[3];
+		initialState[7] = {id:myid, x:8, y:7, halfHeight: 0.5, halfWidth: 0.4, color: 'green'};
+		
+		myid = "box" + fields[4];
+		initialState[8] = {id:myid, x:9, y:7, halfHeight: 0.5, halfWidth: 0.5, color: 'blue'};
     	
-    	if (i < fields.length*0.5) {
-      		
-      		initialState[i+4] = {id:myid, x:5+i, y:7, halfHeight: 1, halfWidth: 0.1};
-      	
-      	} else {
-      	      		
-      		initialState[i+4] = {id:myid, x:7+i, y:7, halfHeight: 1, halfWidth: 0.1};
-      		
-      	}
-    	
-    
     }
     
     var running = true;
